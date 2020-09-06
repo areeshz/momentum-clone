@@ -1,4 +1,5 @@
 import React from 'react';
+import Layout from './components/Layout'
 import Weather from './components/Weather'
 import Quote from './components/Quote'
 
@@ -6,8 +7,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Weather />
-        <Quote />
+        <Layout>
+          <Weather />
+          <Quote />
+        </Layout>
       </header>
     </div>
   );
