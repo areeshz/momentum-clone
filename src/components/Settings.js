@@ -38,9 +38,12 @@ const Settings = (props) => {
                     <h3>Tailor Your Experience</h3>
                     <Form onSubmit={onSubmit}>
                         <Form.Input label='Name' placeholder='e.g. Areesh' value={newName} onChange={onNameChange}/>
-                        <Button positive content='Save' icon='checkmark' labelPosition='right' type='submit' />
                     </Form>
                 </Modal.Content>
+                <Modal.Actions>
+                    <Button content='Cancel' icon='cancel' labelPosition='right' onClick={onCancel} />
+                    <Button positive content='Save' icon='checkmark' labelPosition='right' onClick={onSubmit}/>
+                </Modal.Actions>
             </Modal>
         </div>
     )
