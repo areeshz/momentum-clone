@@ -4,7 +4,7 @@ import axios from 'axios'
 const unsplashAPIKey = process.env.REACT_APP_UNSPLASH_API_KEY
 
 const Layout = (props) => {
-    const [imgUrl, setImgUrl] = useState('https://i.ytimg.com/vi/xRZB5KBLdOA/maxresdefault.jpg')
+    const [imgUrl, setImgUrl] = useState('https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero-00e10b1f.jpg')
 
     const getImgUrl = async () => {
         try {

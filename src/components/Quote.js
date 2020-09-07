@@ -24,7 +24,7 @@ const Quote = () => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        margin: '0 25px 10px'
+        margin: '0 25px'
     }
 
     const quoteStyle = {
@@ -39,7 +39,7 @@ const Quote = () => {
     }
 
     return (
-        <React.Fragment >
+        <React.Fragment>
             {quoteInfo && quoteInfo?.quoteText ?
                 <div style={quoteBoxStyles}>
                     <p style={quoteStyle}><a style={linkStyle} href={quoteInfo.quoteLink} target='_blank' rel='noopener noreferrer'>"{quoteInfo.quoteText}"</a></p>

@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from './components/Layout'
 import Weather from './components/Weather'
 import Clock from './components/Clock'
-import Quote from './components/Quote'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
         <Layout>
           <Weather />
           <Clock />
-          <Quote />
+          <Footer />
         </Layout>
       </header>
     </div>
