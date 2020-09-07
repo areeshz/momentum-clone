@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react'
+import Weather from './Weather'
+import Clock from './Clock'
+import Footer from './Footer'
 import axios from 'axios'
 
 const unsplashAPIKey = process.env.REACT_APP_UNSPLASH_API_KEY
 
 const Layout = (props) => {
     const [imgUrl, setImgUrl] = useState('https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero-00e10b1f.jpg')
+    const [name, setName] = useState('Stranger')
 
     const getImgUrl = async () => {
         try {
@@ -37,7 +41,9 @@ const Layout = (props) => {
 
     return (
         <div style={layoutStyles}>
-            {props.children}
+            <Weather />
+            <Clock name={name} />
+            <Footer name={name} setName={setName} />
         </div>
     )
 }

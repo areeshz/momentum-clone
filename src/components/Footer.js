@@ -2,7 +2,7 @@ import React from 'react'
 import Quote from './Quote'
 import Settings from './Settings'
 
-const Footer = () => {
+const Footer = (props) => {
     const containerStyles = {
         display: 'flex',
         alignItems: 'flex-end',
@@ -12,9 +12,9 @@ const Footer = () => {
 
     return (
         <div style={containerStyles}>
-            <Settings />
+            <Settings name={props.name} setName={props.setName} />
             <Quote />
-            <Settings />
+            <Settings name={props.name} setName={props.setName} />
         </div>
     )
 }

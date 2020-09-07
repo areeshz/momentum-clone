@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import moment from 'moment'
 
-const Clock = () => {
+const Clock = (props) => {
     const [time, setTime] = useState(moment().format('h:mm A'))
 
     const setNewTime = () => {
@@ -32,7 +32,7 @@ const Clock = () => {
     return (
         <div>
             <p style={timeStyle}>{time}</p>
-            <p style={greetingStyle}>Welcome, Areesh</p>
+            <p style={greetingStyle}>Welcome, {props.name}</p>
         </div>
     )
 }
