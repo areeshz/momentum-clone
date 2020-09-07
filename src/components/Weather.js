@@ -7,6 +7,7 @@ const Weather = () => {
     const [temp, setTemp] = useState(null)
     const [iconUrl, setIconUrl] = useState(null)
     const [weatherDescription, setWeatherDescription] = useState(null)
+    const [location, setLocation] = useState(null)
 
     const getWeatherData = async () => {
         try {
@@ -20,16 +21,37 @@ const Weather = () => {
     useEffect(() => {
         getWeatherData()
             .then(data => {
-                const temperature = Math.floor(((data.main.temp * (9/5)) - 459.67) * 10) / 10
+                const temperature = Math.round(((data.main.temp * (9/5)) - 459.67))
                 const icon = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
                 setIconUrl(icon)
                 setTemp(temperature)
                 setWeatherDescription(data.weather[0].description)
+                setLocation(data.name)
             })
     }, [])
 
     const weatherStyles = {
         display: 'flex',
+        justifyContent: 'flex-end',
+        alignItems: 'center'
+    }
+
+    const tempStyle = {
+        marginTop: '0',
+        marginBottom: '0px',
+        textAlign: 'center',
+        fontSize: '20px'
+    }
+
+    const locationStyle = {
+        fontSize: '12px',
+        marginTop: '6px',
+        marginBottom: '0'
+    }
+
+    const tempLocationStyle = {
+        display: 'flex',
+        flexDirection: 'column',
         alignItems: 'center'
     }
     
@@ -39,7 +61,10 @@ const Weather = () => {
                 <img src={iconUrl} alt={weatherDescription} />
             }
             { temp &&
-                <p>{temp} degrees F</p>
+                <div style={tempLocationStyle}>
+                    <p style={tempStyle}>{temp} &#186;F</p>
+                    <p style={locationStyle}>{location}</p>
+                </div>
             }
         </div>
     )

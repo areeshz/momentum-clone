@@ -4,7 +4,7 @@ import axios from 'axios'
 const unsplashAPIKey = process.env.REACT_APP_UNSPLASH_API_KEY
 
 const Layout = (props) => {
-    const [imgUrl, setImgUrl] = useState(null)
+    const [imgUrl, setImgUrl] = useState('https://i.ytimg.com/vi/xRZB5KBLdOA/maxresdefault.jpg')
 
     const getImgUrl = async () => {
         try {
@@ -16,21 +16,27 @@ const Layout = (props) => {
     }
 
     useEffect(() => {
-        // getImgUrl()
+        getImgUrl()
     }, [])
 
     const layoutStyles = {
-        backgroundImage: `url(${imgUrl})`,
+        backgroundImage: `linear-gradient(
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.3)
+          ),
+          url(${imgUrl})`,
         backgroundSize: 'cover',
         height: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        paddingLeft: '15px',
+        paddingRight: '15px',
+        color: 'white'
     }
 
     return (
         <div style={layoutStyles}>
-            <p style={{ marginTop: '0'}}>Layout component</p>
             {props.children}
         </div>
     )

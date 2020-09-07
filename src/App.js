@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from './components/Layout'
 import Weather from './components/Weather'
+import Clock from './components/Clock'
 import Quote from './components/Quote'
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <header className="App-header">
         <Layout>
           <Weather />
+          <Clock />
           <Quote />
         </Layout>
       </header>

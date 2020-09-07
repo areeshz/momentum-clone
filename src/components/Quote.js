@@ -10,7 +10,6 @@ const Quote = () => {
         try {
             const response = await axios.get(quoteApiUrl)
             setQuoteInfo(response.data)
-            console.log(response.data)
         } catch (e) {
             console.error(e)
         }
@@ -24,17 +23,34 @@ const Quote = () => {
     const quoteBoxStyles = {
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center'
+        alignItems: 'center',
+        margin: '0 25px 10px'
+    }
+
+    const quoteStyle = {
+        fontSize: '20px',
+        fontWeight: '500',
+        textAlign: 'center'
+    }
+
+    const linkStyle = {
+        color: 'white',
+        textDecoration: 'none'
     }
 
     return (
         <React.Fragment >
-            {quoteInfo?.quoteText &&
-            <div style={quoteBoxStyles}>
-                <p><a href={quoteInfo.quoteLink} target='_blank' rel='noopener noreferrer'>{quoteInfo.quoteText}</a></p>
-                <p>{quoteInfo.quoteAuthor ? `- ${quoteInfo.quoteAuthor}` : '- Unknown Author'}</p>
-            </div>
-        }
+            {quoteInfo && quoteInfo?.quoteText ?
+                <div style={quoteBoxStyles}>
+                    <p style={quoteStyle}><a style={linkStyle} href={quoteInfo.quoteLink} target='_blank' rel='noopener noreferrer'>"{quoteInfo.quoteText}"</a></p>
+                    <p>{quoteInfo.quoteAuthor ? `- ${quoteInfo.quoteAuthor}` : '- Unknown Author'}</p>
+                </div>
+                :
+                <div style={quoteBoxStyles}>
+                    <p style={quoteStyle}>"The journey of a thousand miles begins with one step."</p>
+                    <p>- Lao Tzu</p>
+                </div>
+            }
         </React.Fragment>
         
     )
