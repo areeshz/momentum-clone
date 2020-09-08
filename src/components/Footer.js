@@ -12,9 +12,9 @@ const Footer = (props) => {
 
     return (
         <div style={containerStyles}>
-            <Settings name={props.name} setName={props.setName} />
+            <Settings name={props.name} setName={props.setName} location={props.location} setLocation={props.setLocation} />
             <Quote />
-            <Settings name={props.name} setName={props.setName} />
+            <Settings name={props.name} setName={props.setName} location={props.location} setLocation={props.setLocation} />
         </div>
     )
 }

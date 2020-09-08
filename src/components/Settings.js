@@ -4,16 +4,21 @@ import { Button, Modal, Form } from 'semantic-ui-react'
 const Settings = (props) => {
     const [open, setOpen] = useState(false)
     const [newName, setNewName] = useState(props.name === 'Stranger' ? '' : props.name)
+    const [newLocation, setNewLocation] = useState(props.location)
 
     const onNameChange = (e) => {
         setNewName(e.target.value)
     }
 
+    const onLocationChange = (e) => {
+        setNewLocation(e.target.value)
+    }
+
     const onSubmit = (e) => {
         e.preventDefault()
 
-        console.log('new name is', newName)
-        props.setName(newName)
+        props.setName(newName || 'Stranger')
+        props.setLocation(newLocation || 'Atlanta')
         setOpen(false)
     }
 
@@ -36,13 +41,14 @@ const Settings = (props) => {
                 <Modal.Header>Settings</Modal.Header>
                 <Modal.Content>
                     <h3>Tailor Your Experience</h3>
-                    <Form onSubmit={onSubmit}>
-                        <Form.Input label='Name' placeholder='e.g. Areesh' value={newName} onChange={onNameChange}/>
+                    <Form onSubmit={onSubmit} id='settings-form'>
+                        <Form.Input label='Name' placeholder='e.g. Areesh' value={newName} onChange={onNameChange} />
+                        <Form.Input label='City' placeholder='e.g. Atlanta' value={newLocation} onChange={onLocationChange} />
                     </Form>
                 </Modal.Content>
                 <Modal.Actions>
                     <Button content='Cancel' icon='cancel' labelPosition='right' onClick={onCancel} />
-                    <Button positive content='Save' icon='checkmark' labelPosition='right' onClick={onSubmit}/>
+                    <Button positive content='Save' icon='checkmark' labelPosition='right' type='submit' form='settings-form'/>
                 </Modal.Actions>
             </Modal>
         </div>

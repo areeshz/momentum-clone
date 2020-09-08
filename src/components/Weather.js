@@ -3,15 +3,15 @@ import axios from 'axios'
 
 const weatherAPIKey = process.env.REACT_APP_OPEN_WEATHER_API_KEY
 
-const Weather = () => {
+const Weather = (props) => {
     const [temp, setTemp] = useState(null)
     const [iconUrl, setIconUrl] = useState(null)
     const [weatherDescription, setWeatherDescription] = useState(null)
-    const [location, setLocation] = useState(null)
+    const [city, setCity] = useState(null)
 
     const getWeatherData = async () => {
         try {
-            const response = await axios.get('http://api.openweathermap.org/data/2.5/weather?q=atlanta&appid=' + weatherAPIKey)
+            const response = await axios.get('http://api.openweathermap.org/data/2.5/weather?q=' + props.location + '&appid=' + weatherAPIKey)
             return response.data
         } catch (e) {
             console.error(e)
@@ -26,9 +26,9 @@ const Weather = () => {
                 setIconUrl(icon)
                 setTemp(temperature)
                 setWeatherDescription(data.weather[0].description)
-                setLocation(data.name)
+                setCity(data.name)
             })
-    }, [])
+    }, [props])
 
     const weatherStyles = {
         display: 'flex',
@@ -63,7 +63,7 @@ const Weather = () => {
             { temp &&
                 <div style={tempLocationStyle}>
                     <p style={tempStyle}>{temp} &#186;F</p>
-                    <p style={locationStyle}>{location}</p>
+                    <p style={locationStyle}>{city}</p>
                 </div>
             }
         </div>

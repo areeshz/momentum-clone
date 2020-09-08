@@ -9,6 +9,7 @@ const unsplashAPIKey = process.env.REACT_APP_UNSPLASH_API_KEY
 const Layout = (props) => {
     const [imgUrl, setImgUrl] = useState('https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero-00e10b1f.jpg')
     const [name, setName] = useState('Stranger')
+    const [location, setLocation] = useState('Atlanta')
 
     const getImgUrl = async () => {
         try {
@@ -41,9 +42,9 @@ const Layout = (props) => {
 
     return (
         <div style={layoutStyles}>
-            <Weather />
+            <Weather location={location} />
             <Clock name={name} />
-            <Footer name={name} setName={setName} />
+            <Footer name={name} setName={setName} location={location} setLocation={setLocation}/>
         </div>
     )
 }
