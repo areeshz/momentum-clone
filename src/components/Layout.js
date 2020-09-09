@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Weather from './Weather'
 import Clock from './Clock'
 import Footer from './Footer'
+import AlertMessage from './AlertMessage'
 import axios from 'axios'
 
 import { Message } from 'semantic-ui-react'
@@ -47,30 +48,10 @@ const Layout = (props) => {
         setShowError(false)
     }
 
-    const floatStyle = {
-        position: 'fixed',
-        bottom: '20px',
-        zIndex: '1000'
-    }
-
-    const centerFloat = {
-        display: 'flex',
-        justifyContent: 'center'
-    }
-
     return (
         <React.Fragment>
-            {showError && 
-            <div style={centerFloat}>
-                <Message
-                style={floatStyle}
-                content='Please try again with a valid city.'
-                header='Unable to find data for this city'
-                floating={true}
-                onDismiss={onDismiss}
-                error
-            />
-            </div>
+            {showError &&
+                <AlertMessage onDismiss={onDismiss} content='Please try again with a valid city.' header='Invalid City' />
             }
             <div style={layoutStyles}>
                 <Weather location={location} setShowError={setShowError} setLocation={setLocation} />
