@@ -14,7 +14,9 @@ const Weather = (props) => {
             const response = await axios.get('http://api.openweathermap.org/data/2.5/weather?q=' + props.location + '&appid=' + weatherAPIKey)
             return response.data
         } catch (e) {
-            console.error(e)
+            // console.log(e)
+            props.setShowError(true)
+            throw new Error('city not found')
         }
     }
     
@@ -28,7 +30,10 @@ const Weather = (props) => {
                 setWeatherDescription(data.weather[0].description)
                 setCity(data.name)
             })
-    }, [props])
+            .catch(e => {
+                // console.error(e)
+            })
+    }, [props.location])
 
     const weatherStyles = {
         display: 'flex',

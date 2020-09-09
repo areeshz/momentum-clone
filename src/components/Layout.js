@@ -4,12 +4,15 @@ import Clock from './Clock'
 import Footer from './Footer'
 import axios from 'axios'
 
+import { Message } from 'semantic-ui-react'
+
 const unsplashAPIKey = process.env.REACT_APP_UNSPLASH_API_KEY
 
 const Layout = (props) => {
     const [imgUrl, setImgUrl] = useState('https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero-00e10b1f.jpg')
     const [name, setName] = useState('Stranger')
     const [location, setLocation] = useState('Atlanta')
+    const [showError, setShowError] = useState(false)
 
     const getImgUrl = async () => {
         try {
@@ -21,7 +24,7 @@ const Layout = (props) => {
     }
 
     useEffect(() => {
-        getImgUrl()
+        // getImgUrl()
     }, [])
 
     const layoutStyles = {
@@ -40,12 +43,42 @@ const Layout = (props) => {
         color: 'white'
     }
 
+    const onDismiss = () => {
+        setShowError(false)
+    }
+
+    const floatStyle = {
+        position: 'fixed',
+        bottom: '20px',
+        zIndex: '1000'
+    }
+
+    const centerFloat = {
+        display: 'flex',
+        justifyContent: 'center'
+    }
+
     return (
-        <div style={layoutStyles}>
-            <Weather location={location} />
-            <Clock name={name} />
-            <Footer name={name} setName={setName} location={location} setLocation={setLocation}/>
-        </div>
+        <React.Fragment>
+            {showError && 
+            <div style={centerFloat}>
+                <Message
+                style={floatStyle}
+                content='Please try again with a valid city.'
+                header='Unable to find data for this city'
+                floating={true}
+                onDismiss={onDismiss}
+                error
+            />
+            </div>
+            }
+            <div style={layoutStyles}>
+                <Weather location={location} setShowError={setShowError} setLocation={setLocation} />
+                <Clock name={name} />
+                <Footer name={name} setName={setName} location={location} setLocation={setLocation} setShowError={setShowError}/>
+            </div>
+        </React.Fragment>
+
     )
 }
 
