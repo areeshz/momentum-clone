@@ -4,15 +4,17 @@ import Clock from './Clock'
 import Footer from './Footer'
 import AlertMessage from './AlertMessage'
 import axios from 'axios'
-
-import { Message } from 'semantic-ui-react'
+import blackScreen from '../black_screen.jpg'
 
 const unsplashAPIKey = process.env.REACT_APP_UNSPLASH_API_KEY
 
 const Layout = (props) => {
-    const [imgUrl, setImgUrl] = useState('https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero-00e10b1f.jpg')
+    const [imgUrl, setImgUrl] = useState(blackScreen)
     const [name, setName] = useState('Stranger')
-    const [location, setLocation] = useState('Atlanta')
+    const [validLocation, setValidLocation] = useState('Atlanta')
+    const [newLocation, setNewLocation] = useState('Atlanta')
+    const [updateWeather, setUpdateWeather] = useState(false)
+
     const [showError, setShowError] = useState(false)
 
     const getImgUrl = async () => {
@@ -25,7 +27,7 @@ const Layout = (props) => {
     }
 
     useEffect(() => {
-        // getImgUrl()
+        getImgUrl()
     }, [])
 
     const layoutStyles = {
@@ -54,9 +56,24 @@ const Layout = (props) => {
                 <AlertMessage onDismiss={onDismiss} content='Please try again with a valid city.' header='Invalid City' />
             }
             <div style={layoutStyles}>
-                <Weather location={location} setShowError={setShowError} setLocation={setLocation} />
+                <Weather
+                    validLocation={validLocation}
+                    setShowError={setShowError}
+                    setValidLocation={setValidLocation}
+                    newLocation={newLocation}
+                    setNewLocation={setNewLocation}
+                    updateWeather={updateWeather}
+                />
                 <Clock name={name} />
-                <Footer name={name} setName={setName} location={location} setLocation={setLocation} setShowError={setShowError}/>
+                <Footer
+                    name={name}
+                    setName={setName}
+                    validLocation={validLocation}
+                    newLocation={newLocation}
+                    setNewLocation={setNewLocation}
+                    updateWeather={updateWeather}
+                    setUpdateWeather={setUpdateWeather}
+                />
             </div>
         </React.Fragment>
 

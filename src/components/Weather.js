@@ -11,10 +11,9 @@ const Weather = (props) => {
 
     const getWeatherData = async () => {
         try {
-            const response = await axios.get('http://api.openweathermap.org/data/2.5/weather?q=' + props.location + '&appid=' + weatherAPIKey)
+            const response = await axios.get('http://api.openweathermap.org/data/2.5/weather?q=' + props.newLocation + '&appid=' + weatherAPIKey)
             return response.data
         } catch (e) {
-            // console.log(e)
             props.setShowError(true)
             throw new Error('city not found')
         }
@@ -29,11 +28,12 @@ const Weather = (props) => {
                 setTemp(temperature)
                 setWeatherDescription(data.weather[0].description)
                 setCity(data.name)
+                props.setValidLocation(data.name)
             })
             .catch(e => {
-                // console.error(e)
+                props.setNewLocation(props.validLocation)
             })
-    }, [props.location])
+    }, [props.updateWeather])
 
     const weatherStyles = {
         display: 'flex',

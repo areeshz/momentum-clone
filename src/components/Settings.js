@@ -4,32 +4,33 @@ import { Button, Modal, Form } from 'semantic-ui-react'
 const Settings = (props) => {
     const [open, setOpen] = useState(false)
     const [newName, setNewName] = useState(props.name === 'Stranger' ? '' : props.name)
-    const [newLocation, setNewLocation] = useState(props.location)
 
     const onNameChange = (e) => {
         setNewName(e.target.value)
     }
 
     const onLocationChange = (e) => {
-        setNewLocation(e.target.value)
+        props.setNewLocation(e.target.value)
     }
 
     const onSubmit = (e) => {
         e.preventDefault()
 
         props.setName(newName || 'Stranger')
-        props.setLocation(newLocation || 'Atlanta')
+        props.setUpdateWeather(!props.updateWeather)
+        
         setOpen(false)
     }
 
     const onCancel = () => {
         setOpen(false)
         setNewName(props.name === 'Stranger' ? '' : props.name)
+        props.setNewLocation(props.validLocation)
     }
 
     return (
         <div>
-            <Button basic icon='settings' onClick={() => setOpen(true)}/>
+            <Button icon='settings' onClick={() => setOpen(true)}/>
             <Modal
                 closeIcon
                 size='small'
@@ -43,7 +44,7 @@ const Settings = (props) => {
                     <h3>Tailor Your Experience</h3>
                     <Form onSubmit={onSubmit} id='settings-form'>
                         <Form.Input label='Name' placeholder='e.g. Areesh' value={newName} onChange={onNameChange} />
-                        <Form.Input label='City' placeholder='e.g. Atlanta' value={newLocation} onChange={onLocationChange} />
+                        <Form.Input label='City' placeholder='e.g. Atlanta' value={props.newLocation} onChange={onLocationChange} />
                     </Form>
                 </Modal.Content>
                 <Modal.Actions>
