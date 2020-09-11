@@ -14,6 +14,7 @@ const Layout = (props) => {
     const [validLocation, setValidLocation] = useState('Atlanta')
     const [newLocation, setNewLocation] = useState('Atlanta')
     const [updateWeather, setUpdateWeather] = useState(false)
+    const [timezoneOffset, setTimezoneOffset] = useState(3600)
 
     const [showError, setShowError] = useState(false)
 
@@ -63,8 +64,12 @@ const Layout = (props) => {
                     newLocation={newLocation}
                     setNewLocation={setNewLocation}
                     updateWeather={updateWeather}
+                    setTimezoneOffset={setTimezoneOffset}
                 />
-                <Clock name={name} />
+                <Clock
+                    name={name}
+                    timezoneOffset={timezoneOffset}
+                />
                 <Footer
                     name={name}
                     setName={setName}

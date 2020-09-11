@@ -5,7 +5,10 @@ const Clock = (props) => {
     const [time, setTime] = useState(moment().format('h:mm A'))
 
     const setNewTime = () => {
-        setTime(moment().format('h:mm A'))
+        const now = new Date()
+        now.setHours(now.getUTCHours() + Math.floor(props.timezoneOffset / 3600))
+        now.setMinutes(now.getUTCMinutes() + (props.timezoneOffset % 3600 / 60))
+        setTime(moment(now).format('h:mm A'))
     }
 
     useEffect(() => {
@@ -14,7 +17,7 @@ const Clock = (props) => {
         return function () {
             clearInterval(clockInterval)
         }
-    }, [])
+    }, [props.timezoneOffset])
 
     const timeStyle = {
         fontSize: '125px',

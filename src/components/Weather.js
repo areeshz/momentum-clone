@@ -29,6 +29,8 @@ const Weather = (props) => {
                 setWeatherDescription(data.weather[0].description)
                 setCity(data.name)
                 props.setValidLocation(data.name)
+                props.setNewLocation(data.name)
+                props.setTimezoneOffset(data.timezone)
             })
             .catch(e => {
                 props.setNewLocation(props.validLocation)
