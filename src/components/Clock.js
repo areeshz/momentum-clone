@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import moment from 'moment'
 
+import getGreeting from '../helpers/getGreeting'
+
 const Clock = (props) => {
     const [time, setTime] = useState(moment().format('h:mm A'))
 
@@ -35,7 +37,7 @@ const Clock = (props) => {
     return (
         <div>
             <p style={timeStyle}>{time}</p>
-            <p style={greetingStyle}>Welcome, {props.name}</p>
+            <p style={greetingStyle}>{getGreeting(time)} {props.name}</p>
         </div>
     )
 }
