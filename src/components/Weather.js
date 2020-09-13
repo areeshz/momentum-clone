@@ -11,7 +11,7 @@ const Weather = (props) => {
 
     const getWeatherData = async () => {
         try {
-            const response = await axios.get('http://api.openweathermap.org/data/2.5/weather?q=' + props.newLocation + '&appid=' + weatherAPIKey)
+            const response = await axios.get('https://api.openweathermap.org/data/2.5/weather?q=' + props.newLocation + '&appid=' + weatherAPIKey)
             return response.data
         } catch (e) {
             props.setShowError(true)
