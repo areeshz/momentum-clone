@@ -5,6 +5,7 @@ import Footer from './Footer'
 import AlertMessage from './AlertMessage'
 import axios from 'axios'
 import blackScreen from '../black_screen.jpg'
+import atlanta from '../atlanta.jpg'
 
 const unsplashAPIKey = process.env.REACT_APP_UNSPLASH_API_KEY
 
@@ -23,7 +24,7 @@ const Layout = (props) => {
             const response = await axios.get('https://api.unsplash.com/photos/random/?orientation=landscape&client_id=' + unsplashAPIKey)
             setImgUrl(response.data.urls.regular)
         } catch (e) {
-            console.error(e)
+            setImgUrl(atlanta)
         }
     }
 
