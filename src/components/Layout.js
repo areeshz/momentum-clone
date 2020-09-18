@@ -11,9 +11,9 @@ const unsplashAPIKey = process.env.REACT_APP_UNSPLASH_API_KEY
 
 const Layout = (props) => {
     const [imgUrl, setImgUrl] = useState(blackScreen)
-    const [name, setName] = useState('Stranger')
-    const [validLocation, setValidLocation] = useState('Atlanta')
-    const [newLocation, setNewLocation] = useState('Atlanta')
+    const [name, setName] = useState(localStorage['momentum-name'] || 'Stranger')
+    const [validLocation, setValidLocation] = useState(localStorage['momentum-valid-location'] || 'Atlanta')
+    const [newLocation, setNewLocation] = useState(localStorage['momentum-valid-location'] || 'Atlanta')
     const [updateWeather, setUpdateWeather] = useState(false)
     const [timezoneOffset, setTimezoneOffset] = useState(3600)
 
