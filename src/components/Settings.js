@@ -18,7 +18,9 @@ const Settings = (props) => {
 
         props.setName(newName || 'Stranger')
         localStorage.setItem('momentum-name', newName || 'Stranger')
-        props.setUpdateWeather(!props.updateWeather)
+        if (props.newLocation !== props.validLocation) {
+            props.setUpdateWeather(!props.updateWeather)
+        }
         
         setOpen(false)
     }
