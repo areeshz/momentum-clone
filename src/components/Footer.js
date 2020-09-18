@@ -1,6 +1,7 @@
 import React from 'react'
 import Quote from './Quote'
 import Settings from './Settings'
+import { Button } from 'semantic-ui-react'
 
 const Footer = (props) => {
     const containerStyles = {
@@ -22,15 +23,7 @@ const Footer = (props) => {
                 setUpdateWeather={props.setUpdateWeather}
             />
             <Quote />
-            <Settings
-                name={props.name}
-                setName={props.setName}
-                validLocation={props.validLocation}
-                newLocation={props.newLocation}
-                setNewLocation={props.setNewLocation}
-                updateWeather={props.updateWeather}
-                setUpdateWeather={props.setUpdateWeather}
-            />
+            <Button icon='code' onClick={() => window.open('https://github.com/areeshz/momentum-clone', '_blank')} />
         </div>
     )
 }
