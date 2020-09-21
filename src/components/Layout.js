@@ -10,7 +10,10 @@ import atlanta from '../atlanta.jpg'
 const unsplashAPIKey = process.env.REACT_APP_UNSPLASH_API_KEY
 
 const Layout = (props) => {
-    const [imgUrl, setImgUrl] = useState(blackScreen)
+    const [background, setBackground] = useState((localStorage['momentum-background'] && JSON.parse(localStorage['momentum-background'])) || {
+        imgUrl: blackScreen,
+        timeSet: new Date('August 31, 2020 03:24:00')
+    })
     const [name, setName] = useState(localStorage['momentum-name'] || 'Stranger')
     const [validLocation, setValidLocation] = useState(localStorage['momentum-valid-location'] || 'Atlanta')
     const [newLocation, setNewLocation] = useState(localStorage['momentum-valid-location'] || 'Atlanta')
@@ -20,24 +23,51 @@ const Layout = (props) => {
     const [showError, setShowError] = useState(false)
 
     const getImgUrl = async () => {
+        let oldTime = background.timeSet
+        if (typeof oldTime === "string") {
+            oldTime = new Date(oldTime)
+        }
+
+        if (new Date() - oldTime.getTime() < 1800000) {
+            return
+        }
+
         try {
             const response = await axios.get('https://api.unsplash.com/photos/random/?orientation=landscape&client_id=' + unsplashAPIKey)
-            setImgUrl(response.data.urls.regular)
+            const newBackground = {
+                imgUrl: response.data.urls.regular,
+                timeSet: new Date()
+            }
+            setBackground(newBackground)
+            localStorage.setItem('momentum-background', JSON.stringify(newBackground))
         } catch (e) {
-            setImgUrl(atlanta)
+            const oldTime = new Date()
+            oldTime.setMinutes(oldTime.getMinutes() - 27)
+            const newBackground = {
+                imgUrl: atlanta,
+                timeSet: oldTime
+            }
+            setBackground(newBackground)
+            localStorage.setItem('momentum-background', JSON.stringify(newBackground))
         }
     }
 
     useEffect(() => {
         getImgUrl()
-    }, [])
+
+        const backgroundInterval = setInterval(getImgUrl, 60000)
+
+        return function () {
+            clearInterval(backgroundInterval)
+        }
+    }, [getImgUrl])
 
     const layoutStyles = {
         backgroundImage: `linear-gradient(
             rgba(0, 0, 0, 0.3),
             rgba(0, 0, 0, 0.3)
           ),
-          url(${imgUrl})`,
+          url(${background.imgUrl})`,
         backgroundSize: 'cover',
         height: '100vh',
         display: 'flex',
