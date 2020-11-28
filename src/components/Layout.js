@@ -22,13 +22,13 @@ const Layout = (props) => {
 
     const [showError, setShowError] = useState(false)
 
-    const getImgUrl = async () => {
+    const getImgUrl = async (force) => {
         let oldTime = background.timeSet
         if (typeof oldTime === "string") {
             oldTime = new Date(oldTime)
         }
 
-        if (new Date() - oldTime.getTime() < 1800000) {
+        if (!force && new Date() - oldTime.getTime() < 1800000) {
             return
         }
 
@@ -109,6 +109,7 @@ const Layout = (props) => {
                     setNewLocation={setNewLocation}
                     updateWeather={updateWeather}
                     setUpdateWeather={setUpdateWeather}
+                    getImgUrl={getImgUrl}
                 />
             </div>
         </React.Fragment>

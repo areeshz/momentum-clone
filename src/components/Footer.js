@@ -21,6 +21,7 @@ const Footer = (props) => {
                 setNewLocation={props.setNewLocation}
                 updateWeather={props.updateWeather}
                 setUpdateWeather={props.setUpdateWeather}
+                getImgUrl={props.getImgUrl}
             />
             <Quote />
             <Button icon='code' onClick={() => window.open('https://github.com/areeshz/momentum-clone', '_blank')} />
