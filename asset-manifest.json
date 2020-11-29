@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/momentum-clone/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/momentum-clone/static/js/main.2f7415f6.chunk.js",
+    "main.js.map": "/momentum-clone/static/js/main.2f7415f6.chunk.js.map",
+    "runtime-main.js": "/momentum-clone/static/js/runtime-main.c3abc0ab.js",
+    "runtime-main.js.map": "/momentum-clone/static/js/runtime-main.c3abc0ab.js.map",
+    "static/css/2.3194fed9.chunk.css": "/momentum-clone/static/css/2.3194fed9.chunk.css",
+    "static/js/2.00ba8f17.chunk.js": "/momentum-clone/static/js/2.00ba8f17.chunk.js",
+    "static/js/2.00ba8f17.chunk.js.map": "/momentum-clone/static/js/2.00ba8f17.chunk.js.map",
+    "index.html": "/momentum-clone/index.html",
+    "precache-manifest.cb79d234998a9b0c1ae53572ed68d562.js": "/momentum-clone/precache-manifest.cb79d234998a9b0c1ae53572ed68d562.js",
+    "service-worker.js": "/momentum-clone/service-worker.js",
+    "static/css/2.3194fed9.chunk.css.map": "/momentum-clone/static/css/2.3194fed9.chunk.css.map",
+    "static/css/main.5ecd60fb.chunk.css.map": "/momentum-clone/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.00ba8f17.chunk.js.LICENSE.txt": "/momentum-clone/static/js/2.00ba8f17.chunk.js.LICENSE.txt",
+    "static/media/atlanta.jpg": "/momentum-clone/static/media/atlanta.1f4dfaf0.jpg",
+    "static/media/semantic.min.css": "/momentum-clone/static/media/outline-icons.ef60a4f6.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c3abc0ab.js",
+    "static/css/2.3194fed9.chunk.css",
+    "static/js/2.00ba8f17.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.2f7415f6.chunk.js"
+  ]
+}
