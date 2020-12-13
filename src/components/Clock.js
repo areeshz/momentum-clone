@@ -14,6 +14,7 @@ const Clock = (props) => {
 	}
 
 	useEffect(() => {
+		setNewTime()
 		const clockInterval = setInterval(setNewTime, 1000)
 
 		return function () {

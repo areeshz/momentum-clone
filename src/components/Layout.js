@@ -22,6 +22,7 @@ const Layout = (props) => {
 	const [updateWeather, setUpdateWeather] = useState(false)
 	const [time, setTime] = useState(moment().format('h:mm A'))
 	const [timezoneOffset, setTimezoneOffset] = useState(3600)
+	const [imgTiming, setImgTiming] = useState(localStorage['momentum-img-timing'] ? localStorage['momentum-img-timing'] === 'true' : true)
 
 	const [showError, setShowError] = useState(false)
 
@@ -36,16 +37,18 @@ const Layout = (props) => {
 		}
 
 		let imgQuery = ''
-		switch (getGreeting(time)) {
-			case 'Good Morning,':
-				imgQuery = 'morning'
-				break;
-			case 'Good Afternoon,':
-				imgQuery = ''
-				break;
-			case 'Good Evening,':
-				imgQuery = 'evening'
-				break;
+		if (imgTiming) {
+			switch (getGreeting(time)) {
+				case 'Good Morning,':
+					imgQuery = 'morning'
+					break;
+				case 'Good Afternoon,':
+					imgQuery = ''
+					break;
+				case 'Good Evening,':
+					imgQuery = 'evening'
+					break;
+			}
 		}
 
 		try {
@@ -128,6 +131,8 @@ const Layout = (props) => {
 					updateWeather={updateWeather}
 					setUpdateWeather={setUpdateWeather}
 					getImgUrl={getImgUrl}
+					imgTiming={imgTiming}
+					setImgTiming={setImgTiming}
 				/>
 			</div>
 		</React.Fragment>

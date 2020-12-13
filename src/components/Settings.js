@@ -4,6 +4,7 @@ import { Button, Modal, Form, Checkbox } from 'semantic-ui-react'
 const Settings = (props) => {
 	const [open, setOpen] = useState(false)
 	const [newName, setNewName] = useState(props.name === 'Stranger' ? '' : props.name)
+	const [newImgTiming, setNewImgTiming] = useState(props.imgTiming)
 	const [newImg, setNewImg] = useState(false)
 
 	const onNameChange = (e) => {
@@ -19,10 +20,12 @@ const Settings = (props) => {
 
 		props.setName(newName || 'Stranger')
 		localStorage.setItem('momentum-name', newName || 'Stranger')
-		if (props.newLocation !== props.validLocation) {
+		props.setImgTiming(newImgTiming)
+		localStorage.setItem('momentum-img-timing', newImgTiming)
+		if (props.newLocation.toLowerCase() !== props.validLocation.toLowerCase()) {
 			props.setUpdateWeather(!props.updateWeather)
 		}
-		if (newImg) {
+		if (newImg || props.newLocation.toLowerCase() !== props.validLocation.toLowerCase()) {
 			props.getImgUrl(true)
 			setNewImg(false)
 		}
@@ -34,11 +37,16 @@ const Settings = (props) => {
 		setNewImg(!newImg)
 	}
 
+	const toggleNewImgTiming = () => {
+		setNewImgTiming(!newImgTiming)
+	}
+
 	const onCancel = () => {
 		setOpen(false)
 		setNewName(props.name === 'Stranger' ? '' : props.name)
 		props.setNewLocation(props.validLocation)
 		setNewImg(false)
+		setNewImgTiming(props.imgTiming)
 	}
 
 	return (
@@ -58,8 +66,9 @@ const Settings = (props) => {
 					<Form onSubmit={onSubmit} id='settings-form'>
 						<Form.Input label='Name' placeholder='e.g. Areesh' value={newName} onChange={onNameChange} />
 						<Form.Input label='City' placeholder='e.g. Atlanta' value={props.newLocation} onChange={onLocationChange} />
+						<Form.Radio label='Background Images Reflect Time' slider checked={newImgTiming} onChange={toggleNewImgTiming}/>
 						<Form.Field>
-							<Checkbox label='Refresh Background Image?' checked={newImg} onChange={toggleNewImg}/>
+							<Checkbox label='Manually Refresh Background Image?' checked={newImg} onChange={toggleNewImg}/>
 						</Form.Field>
 					</Form>
 				</Modal.Content>
