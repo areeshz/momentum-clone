@@ -18,8 +18,8 @@ const Weather = (props) => {
             throw new Error('city not found')
         }
     }
-    
-    useEffect(() => {
+
+    const updateWeather = () => {
         getWeatherData()
             .then(data => {
                 const temperature = Math.round(((data.main.temp * (9/5)) - 459.67))
@@ -36,6 +36,15 @@ const Weather = (props) => {
             .catch(e => {
                 props.setNewLocation(props.validLocation)
             })
+    }
+
+    useEffect(() => {
+        updateWeather()
+        const weatherInterval = setInterval(updateWeather, 600000)
+
+        return function () {
+            clearInterval(weatherInterval)
+        }
     }, [props.updateWeather])
 
     const weatherStyles = {
