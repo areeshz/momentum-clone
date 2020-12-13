@@ -18,6 +18,11 @@ const Quote = () => {
 
 	useEffect(() => {
 		getQuoteInfo()
+		const quoteInterval = setInterval(getQuoteInfo, 21600000)
+
+		return function () {
+			clearInterval(quoteInterval)
+		}
 	}, [])
 
 	const quoteBoxStyles = {
