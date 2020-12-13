@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ff9f581c9d78c85ad2142f8abdcab1a3",
+    "revision": "2ed6152a740394eb69368a721e3d084d",
     "url": "/momentum-clone/index.html"
   },
   {
-    "revision": "d06a1362823799ad2390",
+    "revision": "772cafdb5c1531c162f9",
     "url": "/momentum-clone/static/css/2.3194fed9.chunk.css"
   },
   {
-    "revision": "3a5ffc4cf432085901a2",
+    "revision": "5b5a55b6b9fa163e3cfe",
     "url": "/momentum-clone/static/css/main.5ecd60fb.chunk.css"
   },
   {
-    "revision": "d06a1362823799ad2390",
-    "url": "/momentum-clone/static/js/2.00ba8f17.chunk.js"
+    "revision": "772cafdb5c1531c162f9",
+    "url": "/momentum-clone/static/js/2.2c1e984a.chunk.js"
   },
   {
     "revision": "873e3e3a0ce9715d0f3bc15b86a393fc",
-    "url": "/momentum-clone/static/js/2.00ba8f17.chunk.js.LICENSE.txt"
+    "url": "/momentum-clone/static/js/2.2c1e984a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3a5ffc4cf432085901a2",
-    "url": "/momentum-clone/static/js/main.aecbab74.chunk.js"
+    "revision": "5b5a55b6b9fa163e3cfe",
+    "url": "/momentum-clone/static/js/main.2366922f.chunk.js"
   },
   {
     "revision": "acfc5fde7e142b452e6c",
