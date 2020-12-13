@@ -4,7 +4,7 @@ import moment from 'moment'
 import getGreeting from '../helpers/getGreeting'
 
 const Clock = (props) => {
-	const [time, setTime] = useState(moment().format('h:mm A'))
+	const {time, setTime} = props
 
 	const setNewTime = () => {
 		const now = new Date()

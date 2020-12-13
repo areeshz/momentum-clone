@@ -4,8 +4,10 @@ import Clock from './Clock'
 import Footer from './Footer'
 import AlertMessage from './AlertMessage'
 import axios from 'axios'
+import moment from 'moment'
 import blackScreen from '../black_screen.jpg'
 import atlanta from '../atlanta.jpg'
+import getGreeting from '../helpers/getGreeting'
 
 const unsplashAPIKey = process.env.REACT_APP_UNSPLASH_API_KEY
 
@@ -18,6 +20,7 @@ const Layout = (props) => {
 	const [validLocation, setValidLocation] = useState(localStorage['momentum-valid-location'] || 'Atlanta')
 	const [newLocation, setNewLocation] = useState(localStorage['momentum-valid-location'] || 'Atlanta')
 	const [updateWeather, setUpdateWeather] = useState(false)
+	const [time, setTime] = useState(moment().format('h:mm A'))
 	const [timezoneOffset, setTimezoneOffset] = useState(3600)
 
 	const [showError, setShowError] = useState(false)
@@ -32,8 +35,21 @@ const Layout = (props) => {
 			return
 		}
 
+		let imgQuery = ''
+		switch (getGreeting(time)) {
+			case 'Good Morning,':
+				imgQuery = 'morning'
+				break;
+			case 'Good Afternoon,':
+				imgQuery = ''
+				break;
+			case 'Good Evening,':
+				imgQuery = 'evening'
+				break;
+		}
+
 		try {
-			const response = await axios.get('https://api.unsplash.com/photos/random/?orientation=landscape&client_id=' + unsplashAPIKey)
+			const response = await axios.get('https://api.unsplash.com/photos/random/?orientation=landscape&client_id=' + unsplashAPIKey + '&query=' + imgQuery)
 			const newBackground = {
 				imgUrl: response.data.urls.regular,
 				timeSet: new Date()
@@ -100,6 +116,8 @@ const Layout = (props) => {
 				<Clock
 					name={name}
 					timezoneOffset={timezoneOffset}
+					time={time}
+					setTime={setTime}
 				/>
 				<Footer
 					name={name}
