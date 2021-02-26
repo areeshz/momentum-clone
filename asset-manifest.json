@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/momentum-clone/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/momentum-clone/static/js/main.4cc6a684.chunk.js",
-    "main.js.map": "/momentum-clone/static/js/main.4cc6a684.chunk.js.map",
+    "main.js": "/momentum-clone/static/js/main.c4884644.chunk.js",
+    "main.js.map": "/momentum-clone/static/js/main.c4884644.chunk.js.map",
     "runtime-main.js": "/momentum-clone/static/js/runtime-main.c3abc0ab.js",
     "runtime-main.js.map": "/momentum-clone/static/js/runtime-main.c3abc0ab.js.map",
     "static/css/2.3194fed9.chunk.css": "/momentum-clone/static/css/2.3194fed9.chunk.css",
     "static/js/2.728b14de.chunk.js": "/momentum-clone/static/js/2.728b14de.chunk.js",
     "static/js/2.728b14de.chunk.js.map": "/momentum-clone/static/js/2.728b14de.chunk.js.map",
     "index.html": "/momentum-clone/index.html",
-    "precache-manifest.a6cd48436aa6486a627dcce903f70e78.js": "/momentum-clone/precache-manifest.a6cd48436aa6486a627dcce903f70e78.js",
+    "precache-manifest.db40a74aa9186694922f5a4db5f93c31.js": "/momentum-clone/precache-manifest.db40a74aa9186694922f5a4db5f93c31.js",
     "service-worker.js": "/momentum-clone/service-worker.js",
     "static/css/2.3194fed9.chunk.css.map": "/momentum-clone/static/css/2.3194fed9.chunk.css.map",
     "static/css/main.5ecd60fb.chunk.css.map": "/momentum-clone/static/css/main.5ecd60fb.chunk.css.map",
@@ -22,6 +22,6 @@
     "static/css/2.3194fed9.chunk.css",
     "static/js/2.728b14de.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.4cc6a684.chunk.js"
+    "static/js/main.c4884644.chunk.js"
   ]
 }
