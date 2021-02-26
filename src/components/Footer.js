@@ -26,7 +26,7 @@ const Footer = (props) => {
 				setImgTiming={props.setImgTiming}
 			/>
 			<Quote />
-			<Button icon='code' onClick={() => window.open('https://github.com/areeshz/momentum-clone', '_blank')} />
+			<Button icon='refresh' onClick={() => props.getImgUrl(true)} />
 		</div>
 	)
 }

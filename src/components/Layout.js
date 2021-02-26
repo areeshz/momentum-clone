@@ -52,7 +52,7 @@ const Layout = (props) => {
 		}
 
 		try {
-			const response = await axios.get('https://api.unsplash.com/photos/random/?orientation=landscape&client_id=' + unsplashAPIKey + '&query=' + imgQuery)
+			const response = await axios.get('https://api.unsplash.com/photos/random/?orientation=landscape&client_id=' + unsplashAPIKey + (imgQuery ? `&query=${imgQuery}` : ''))
 			const newBackground = {
 				imgUrl: response.data.urls.regular,
 				timeSet: new Date()

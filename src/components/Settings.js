@@ -5,7 +5,6 @@ const Settings = (props) => {
 	const [open, setOpen] = useState(false)
 	const [newName, setNewName] = useState(props.name === 'Stranger' ? '' : props.name)
 	const [newImgTiming, setNewImgTiming] = useState(props.imgTiming)
-	const [newImg, setNewImg] = useState(false)
 
 	const onNameChange = (e) => {
 		setNewName(e.target.value)
@@ -25,16 +24,11 @@ const Settings = (props) => {
 		if (props.newLocation.toLowerCase() !== props.validLocation.toLowerCase()) {
 			props.setUpdateWeather(!props.updateWeather)
 		}
-		if (newImg || props.newLocation.toLowerCase() !== props.validLocation.toLowerCase()) {
+		if (props.newLocation.toLowerCase() !== props.validLocation.toLowerCase()) {
 			props.getImgUrl(true)
-			setNewImg(false)
 		}
 		
 		setOpen(false)
-	}
-
-	const toggleNewImg = () => {
-		setNewImg(!newImg)
 	}
 
 	const toggleNewImgTiming = () => {
@@ -45,7 +39,6 @@ const Settings = (props) => {
 		setOpen(false)
 		setNewName(props.name === 'Stranger' ? '' : props.name)
 		props.setNewLocation(props.validLocation)
-		setNewImg(false)
 		setNewImgTiming(props.imgTiming)
 	}
 
@@ -67,9 +60,6 @@ const Settings = (props) => {
 						<Form.Input label='Name' placeholder='e.g. Areesh' value={newName} onChange={onNameChange} />
 						<Form.Input label='City' placeholder='e.g. Atlanta' value={props.newLocation} onChange={onLocationChange} />
 						<Form.Radio label='Background Images Reflect Time' slider checked={newImgTiming} onChange={toggleNewImgTiming}/>
-						<Form.Field>
-							<Checkbox label='Manually Refresh Background Image?' checked={newImg} onChange={toggleNewImg}/>
-						</Form.Field>
 					</Form>
 				</Modal.Content>
 				<Modal.Actions>
