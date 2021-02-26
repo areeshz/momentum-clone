@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import Weather from './Weather'
 import Clock from './Clock'
 import Footer from './Footer'
@@ -70,6 +70,17 @@ const Layout = (props) => {
 			localStorage.setItem('momentum-background', JSON.stringify(newBackground))
 		}
 	}
+
+	const firstUpdate = useRef(true);
+	useLayoutEffect(() => {
+		if (firstUpdate.current) {
+		firstUpdate.current = false
+		return
+		}
+
+		console.log('img timing ref hook')
+		getImgUrl(true)
+	}, [imgTiming])
 
 	useEffect(() => {
 		getImgUrl()
