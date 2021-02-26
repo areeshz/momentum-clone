@@ -78,9 +78,8 @@ const Layout = (props) => {
 		return
 		}
 
-		console.log('img timing ref hook')
 		getImgUrl(true)
-	}, [imgTiming])
+	}, [imgTiming, validLocation])
 
 	useEffect(() => {
 		getImgUrl()

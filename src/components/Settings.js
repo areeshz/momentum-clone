@@ -24,9 +24,6 @@ const Settings = (props) => {
 		if (props.newLocation.toLowerCase() !== props.validLocation.toLowerCase()) {
 			props.setUpdateWeather(!props.updateWeather)
 		}
-		if (props.newLocation.toLowerCase() !== props.validLocation.toLowerCase()) {
-			props.getImgUrl(true)
-		}
 		
 		setOpen(false)
 	}

@@ -28,10 +28,10 @@ const Weather = (props) => {
 				setTemp(temperature)
 				setWeatherDescription(data.weather[0].description)
 				setCity(data.name)
+				props.setTimezoneOffset(data.timezone)
 				props.setValidLocation(data.name)
 				localStorage.setItem('momentum-valid-location', data.name)
 				props.setNewLocation(data.name)
-				props.setTimezoneOffset(data.timezone)
 			})
 			.catch(e => {
 				props.setNewLocation(props.validLocation)
