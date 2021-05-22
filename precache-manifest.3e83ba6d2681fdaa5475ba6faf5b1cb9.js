@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f30e8d4bee445fe3872dbf3cbb938f82",
+    "revision": "acf259f34c66b770ecabe73149abaa86",
     "url": "/momentum-clone/index.html"
   },
   {
-    "revision": "4750b6388c3d648a7099",
+    "revision": "f3cd346008837cef415c",
     "url": "/momentum-clone/static/css/2.3194fed9.chunk.css"
   },
   {
-    "revision": "b427af409a1fccc24450",
+    "revision": "4427d3609b5222ffdd44",
     "url": "/momentum-clone/static/css/main.5ecd60fb.chunk.css"
   },
   {
-    "revision": "4750b6388c3d648a7099",
-    "url": "/momentum-clone/static/js/2.728b14de.chunk.js"
+    "revision": "f3cd346008837cef415c",
+    "url": "/momentum-clone/static/js/2.f05462c2.chunk.js"
   },
   {
     "revision": "873e3e3a0ce9715d0f3bc15b86a393fc",
-    "url": "/momentum-clone/static/js/2.728b14de.chunk.js.LICENSE.txt"
+    "url": "/momentum-clone/static/js/2.f05462c2.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b427af409a1fccc24450",
-    "url": "/momentum-clone/static/js/main.c4884644.chunk.js"
+    "revision": "4427d3609b5222ffdd44",
+    "url": "/momentum-clone/static/js/main.04cde7ae.chunk.js"
   },
   {
     "revision": "acfc5fde7e142b452e6c",
