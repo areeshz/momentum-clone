@@ -24,6 +24,8 @@ const Footer = (props) => {
 				getImgUrl={props.getImgUrl}
 				imgTiming={props.imgTiming}
 				setImgTiming={props.setImgTiming}
+				backgroundTimer={props.backgroundTimer}
+				setBackgroundTimer={props.setBackgroundTimer}
 			/>
 			<Quote />
 			<Button icon='refresh' onClick={() => props.getImgUrl(true)} />

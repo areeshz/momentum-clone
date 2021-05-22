@@ -23,6 +23,7 @@ const Layout = (props) => {
 	const [time, setTime] = useState(moment().format('h:mm A'))
 	const [timezoneOffset, setTimezoneOffset] = useState(3600)
 	const [imgTiming, setImgTiming] = useState(localStorage['momentum-img-timing'] ? localStorage['momentum-img-timing'] === 'true' : true)
+	const [backgroundTimer, setBackgroundTimer] = useState(localStorage['momentum-img-timer'] ? parseInt(localStorage['momentum-img-timer']) : 1800000)
 
 	const [showError, setShowError] = useState(false)
 
@@ -32,7 +33,7 @@ const Layout = (props) => {
 			oldTime = new Date(oldTime)
 		}
 
-		if (!force && new Date() - oldTime.getTime() < 1800000) {
+		if (!force && new Date() - oldTime.getTime() < backgroundTimer) {
 			return
 		}
 
@@ -143,6 +144,8 @@ const Layout = (props) => {
 					getImgUrl={getImgUrl}
 					imgTiming={imgTiming}
 					setImgTiming={setImgTiming}
+					backgroundTimer={backgroundTimer}
+					setBackgroundTimer={setBackgroundTimer}
 				/>
 			</div>
 		</React.Fragment>
