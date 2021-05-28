@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "acf259f34c66b770ecabe73149abaa86",
+    "revision": "2194b266d3ad5efef6734b4befe3c4e7",
     "url": "/momentum-clone/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/momentum-clone/static/css/2.3194fed9.chunk.css"
   },
   {
-    "revision": "4427d3609b5222ffdd44",
+    "revision": "0b7a766f06e908121c68",
     "url": "/momentum-clone/static/css/main.5ecd60fb.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/momentum-clone/static/js/2.f05462c2.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4427d3609b5222ffdd44",
-    "url": "/momentum-clone/static/js/main.04cde7ae.chunk.js"
+    "revision": "0b7a766f06e908121c68",
+    "url": "/momentum-clone/static/js/main.d2895b25.chunk.js"
   },
   {
     "revision": "acfc5fde7e142b452e6c",
