@@ -44,6 +44,7 @@ const Settings = (props) => {
 		setNewName(props.name === 'Stranger' ? '' : props.name)
 		props.setNewLocation(props.validLocation)
 		setNewImgTiming(props.imgTiming)
+		setNewTimer(props.backgroundTimer)
 	}
 
 	const timerOptions = [
